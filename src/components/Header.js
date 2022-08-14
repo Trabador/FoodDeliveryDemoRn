@@ -7,7 +7,7 @@ import {mainColor} from '../utils/constants';
 
 const Header = () => {
   return (
-    <View className="flex-row pb-3 items-center mx-4 space-x-2 pt-3">
+    <View className="flex-row pb-3 items-center space-x-2 pt-3 px-2 bg-white">
       <Image
         source={{
           uri: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png',

@@ -10,7 +10,7 @@ import {
   View,
 } from 'react-native';
 
-import {Categories, Header, Search} from '../components';
+import {Categories, Featured, Header, Search} from '../components';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -22,11 +22,15 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-white">
+    <SafeAreaView className="bg-gray-200">
       <Header />
       <Search />
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: 200,
+        }}>
         <Categories />
+        <Featured />
       </ScrollView>
     </SafeAreaView>
   );
