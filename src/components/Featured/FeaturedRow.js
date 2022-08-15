@@ -1,63 +1,45 @@
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {FlatList, ScrollView, Text, View} from 'react-native';
 import {ArrowRightIcon} from 'react-native-heroicons/outline';
 import {mainColor} from '../../utils/constants';
+import {fromUrl} from '../../utils/utils';
 import RestaurantCard from './RestaurantCard';
 
-const FeaturedRow = ({title, description}) => {
+const FeaturedRow = ({title, description, restaurants}) => {
+  const renderRestaurants = ({item}) => (
+    <RestaurantCard
+      id={item.id}
+      imgUrl={fromUrl(item.attributes.image.data.attributes.url)}
+      title={item.attributes.name}
+      rating={item.attributes.rating}
+      genre={item.attributes.genre}
+      address={item.attributes.address}
+      short_description={item.attributes.short_desc}
+      long={item.attributes.lon}
+      lat={item.attributes.lat}
+    />
+  );
+
   return (
     <View>
-      <View className="flex-row mt-8 px-3">
+      <View className="flex-row px-3">
         <View className="flex-1">
           <Text className="font-bold text-lg">{title}</Text>
           <Text className="text-xs text-gray-500">{description}</Text>
         </View>
         <ArrowRightIcon color={mainColor} />
       </View>
-      <ScrollView
+      <FlatList
         horizontal
         contentContainerStyle={{
           paddingHorizontal: 15,
         }}
         showsHorizontalScrollIndicator={false}
-        className="pt-4">
-        <RestaurantCard
-          id={123}
-          imgUrl="https://barradeideas.com/wp-content/uploads/2019/09/fast-food.jpg"
-          title={'test'}
-          rating={'5.0'}
-          genre={'Japanese'}
-          address={'123 main st'}
-          short_description={'this is a test description'}
-          dishes={[]}
-          long={0}
-          lat={0}
-        />
-        <RestaurantCard
-          id={123}
-          imgUrl="https://barradeideas.com/wp-content/uploads/2019/09/fast-food.jpg"
-          title={'test'}
-          rating={'5.0'}
-          genre={'Japanese'}
-          address={'123 main st'}
-          short_description={'this is a test description'}
-          dishes={[]}
-          long={0}
-          lat={0}
-        />
-        <RestaurantCard
-          id={123}
-          imgUrl="https://barradeideas.com/wp-content/uploads/2019/09/fast-food.jpg"
-          title={'test'}
-          rating={'5.0'}
-          genre={'Japanese'}
-          address={'123 main st'}
-          short_description={'this is a test description'}
-          dishes={[]}
-          long={0}
-          lat={0}
-        />
-      </ScrollView>
+        className="pt-4"
+        data={restaurants}
+        renderItem={renderRestaurants}
+        keyExtractor={item => item.id}
+      />
     </View>
   );
 };

@@ -1,14 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useLayoutEffect} from 'react';
 
-import {
-  FlatList,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, SafeAreaView, ScrollView} from 'react-native';
 
 import {Categories, Featured, Header, Search} from '../components';
 
@@ -22,16 +15,14 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-gray-200">
+    <SafeAreaView className="bg-gray-100">
       <Header />
       <Search />
-      <ScrollView
-        contentContainerStyle={{
-          paddingBottom: 200,
-        }}>
-        <Categories />
-        <Featured />
-      </ScrollView>
+      <FlatList
+        contentContainerStyle={{paddingBottom: 250}}
+        ListHeaderComponent={<Categories />}
+        ListFooterComponent={<Featured />}
+      />
     </SafeAreaView>
   );
 };
