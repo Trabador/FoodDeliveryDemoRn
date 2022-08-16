@@ -1,41 +1,24 @@
 import {gql} from '@apollo/client/core';
 
-export const GET_RESTAURANTS = gql`
-  query GetRestaurants {
-    restaurants {
+export const GET_DISHES = gql`
+  query GetDishes($id: ID) {
+    restaurant(id: $id) {
       data {
         attributes {
-          name
-          address
-          lat
-          lon
-          rating
-          image {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          short_desc
           dishes {
             data {
+              id
               attributes {
                 title
-              }
-            }
-          }
-          menu_categories {
-            data {
-              attributes {
-                title
-              }
-            }
-          }
-          featured_categories {
-            data {
-              attributes {
-                title
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                short_desc
+                price
               }
             }
           }
