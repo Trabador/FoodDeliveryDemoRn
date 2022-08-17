@@ -1,23 +1,25 @@
 import React, {useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {MinusCircleIcon, PlusCircleIcon} from 'react-native-heroicons/solid';
-import {useBasketStore} from '../../store';
-import {selectQuantity} from '../../store/basketStore';
-import {mainColor} from '../../utils/constants';
-import {fromUrl} from '../../utils/utils';
+import {useBasketStore} from '../../../store';
+import {selectQuantity} from '../../../store/basketStore';
+import {mainColor} from '../../../utils/constants';
+import {fromUrl} from '../../../utils/utils';
 
-const DishRow = ({id, title, imageUrl, short_desc, price}) => {
+const DishRow = ({id, name, title, imageUrl, short_desc, price}) => {
   const [isPressed, setPress] = useState(false);
   const {addItem, removeItem} = useBasketStore(state => state);
 
   const quantity = useBasketStore(state => selectQuantity(id, title, state));
   const isDisabled = quantity === 0;
 
+  const url = fromUrl(imageUrl);
+
   return (
     <>
       <TouchableOpacity
         className={`bg-white border p-4 border-gray-200 ${
-          isPressed ? 'border-b-0' : ''
+          isPressed ? 'border-b-0 mb-0' : ' mb-1'
         }`}
         onPress={() => setPress(prev => !prev)}>
         <View className="flex-row">
@@ -35,10 +37,10 @@ const DishRow = ({id, title, imageUrl, short_desc, price}) => {
         </View>
       </TouchableOpacity>
       {isPressed && (
-        <View className="bg-white">
+        <View className="bg-white mb-1">
           <View className="flex-row items-center space-x-2 pb-3">
             <TouchableOpacity
-              onPress={() => removeItem(id, title, price)}
+              onPress={() => removeItem(id, {title, price, url})}
               disabled={isDisabled}>
               <MinusCircleIcon
                 size={40}
@@ -46,7 +48,8 @@ const DishRow = ({id, title, imageUrl, short_desc, price}) => {
               />
             </TouchableOpacity>
             <Text>{quantity ? quantity : 0}</Text>
-            <TouchableOpacity onPress={() => addItem(id, title, price)}>
+            <TouchableOpacity
+              onPress={() => addItem(id, name, {title, price, url})}>
               <PlusCircleIcon size={40} color={mainColor} />
             </TouchableOpacity>
           </View>

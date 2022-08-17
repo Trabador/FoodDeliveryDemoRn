@@ -1,7 +1,7 @@
 import {useQuery} from '@apollo/client';
 import React from 'react';
-import {FlatList, View} from 'react-native';
-import {GET_FEATURED} from '../../apollo/querys/featuredQuerys';
+import {FlatList} from 'react-native';
+import {GET_FEATURED} from '../../../apollo/querys/featuredQuerys';
 import FeaturedRow from './FeaturedRow';
 
 const Featured = () => {

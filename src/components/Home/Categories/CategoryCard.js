@@ -3,7 +3,9 @@ import {TouchableOpacity, Text, Image} from 'react-native';
 
 const CategoryCard = ({imgUrl, title}) => {
   return (
-    <TouchableOpacity className="relative mr-2  bg-white rounded px-2 py-2">
+    <TouchableOpacity
+      className="relative mr-2  bg-white rounded px-2 py-2"
+      style={{shadowColor: 'gray', shadowRadius: 20, elevation: 20}}>
       <Image
         source={{
           uri: imgUrl,

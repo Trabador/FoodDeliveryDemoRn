@@ -3,7 +3,7 @@ import React from 'react';
 import {Image, View, Text} from 'react-native';
 
 import {ChevronDownIcon, UserIcon} from 'react-native-heroicons/outline';
-import {mainColor} from '../utils/constants';
+import {mainColor} from '../../utils/constants';
 
 const Header = () => {
   return (

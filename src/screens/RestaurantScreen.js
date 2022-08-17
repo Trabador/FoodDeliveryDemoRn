@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useLayoutEffect} from 'react';
+import {FlatList} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {BasketInfo, Dishes, RestaurantHeader} from '../components';
 
@@ -26,16 +27,21 @@ const RestaurantScreen = ({route}) => {
   return (
     <SafeAreaView className="relative h-full">
       <BasketInfo id={id} />
-      <RestaurantHeader
-        imgUrl={imgUrl}
-        title={title}
-        rating={rating}
-        genre={genre}
-        address={address}
-        short_description={short_description}
-        navigation={navigation}
+      <FlatList
+        contentContainerStyle={{paddingBottom: 150}}
+        ListHeaderComponent={
+          <RestaurantHeader
+            imgUrl={imgUrl}
+            title={title}
+            rating={rating}
+            genre={genre}
+            address={address}
+            short_description={short_description}
+            navigation={navigation}
+          />
+        }
+        ListFooterComponent={<Dishes id={id} name={title} />}
       />
-      <Dishes id={id} />
     </SafeAreaView>
   );
 };

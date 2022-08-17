@@ -1,10 +1,12 @@
-import Header from './Header';
-import Search from './Search';
-import Categories from './Categories/Categories';
-import Featured from './Featured/Featured';
-import RestaurantHeader from './RestaurantHeader';
-import Dishes from './Dishes/Dishes';
-import BasketInfo from './BasketInfo';
+import Header from './Home/Header';
+import Search from './Home/Search';
+import Categories from './Home/Categories/Categories';
+import Featured from './Home/Featured/Featured';
+import RestaurantHeader from './Restaurant/RestaurantHeader';
+import Dishes from './Restaurant/Dishes/Dishes';
+import BasketInfo from './Basket/BasketInfo';
+import BasketHeader from './Basket/BasketHeader';
+import BasketSummary from './Basket/BasketSummary/BasketSummary';
 
 export {
   Header,
@@ -14,4 +16,6 @@ export {
   RestaurantHeader,
   Dishes,
   BasketInfo,
+  BasketHeader,
+  BasketSummary,
 };

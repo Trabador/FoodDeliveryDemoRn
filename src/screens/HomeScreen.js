@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useLayoutEffect} from 'react';
 
-import {FlatList, SafeAreaView, ScrollView} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 
 import {Categories, Featured, Header, Search} from '../components';
 

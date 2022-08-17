@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 import {AdjustmentsIcon, SearchIcon} from 'react-native-heroicons/outline';
-import {mainColor} from '../utils/constants';
+import {mainColor} from '../../utils/constants';
 
 const Search = () => {
   return (

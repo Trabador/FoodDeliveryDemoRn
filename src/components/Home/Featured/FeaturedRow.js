@@ -1,8 +1,8 @@
 import React from 'react';
-import {FlatList, ScrollView, Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {ArrowRightIcon} from 'react-native-heroicons/outline';
-import {mainColor} from '../../utils/constants';
-import {fromUrl} from '../../utils/utils';
+import {mainColor} from '../../../utils/constants';
+import {fromUrl} from '../../../utils/utils';
 import RestaurantCard from './RestaurantCard';
 
 const FeaturedRow = ({title, description, restaurants}) => {

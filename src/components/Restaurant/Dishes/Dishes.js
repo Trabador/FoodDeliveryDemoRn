@@ -1,10 +1,10 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {GET_DISHES} from '../../apollo/querys/restaurantQuerys';
+import {GET_DISHES} from '../../../apollo/querys/restaurantQuerys';
 import {useQuery} from '@apollo/client/react';
 import DishRow from './DishRow';
 
-const Dishes = ({id}) => {
+const Dishes = ({id, name}) => {
   const {data, loading, error} = useQuery(GET_DISHES, {variables: {id: id}});
 
   if (loading) return null;
@@ -13,6 +13,7 @@ const Dishes = ({id}) => {
   const renderDishes = ({item}) => (
     <DishRow
       id={id}
+      name={name}
       title={item.attributes.title}
       imageUrl={item.attributes.image.data.attributes.url}
       short_desc={item.attributes.short_desc}

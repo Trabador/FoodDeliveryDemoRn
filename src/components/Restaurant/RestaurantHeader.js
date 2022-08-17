@@ -5,7 +5,7 @@ import {
   LocationMarkerIcon,
   StarIcon,
 } from 'react-native-heroicons/outline';
-import {mainColor} from '../utils/constants';
+import {mainColor} from '../../utils/constants';
 
 const RestaurantHeader = ({
   imgUrl,
