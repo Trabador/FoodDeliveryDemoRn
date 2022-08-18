@@ -1,6 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useLayoutEffect} from 'react';
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import {Deliver} from '../components';
+import {mainColor} from '../utils/constants';
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
@@ -12,11 +14,10 @@ const DeliveryScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <Text>delivery</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>go back</Text>
-      </TouchableOpacity>
+    <SafeAreaView
+      style={{backgroundColor: mainColor}}
+      className="flex-1 justify-center items-center">
+      <Deliver />
     </SafeAreaView>
   );
 };
