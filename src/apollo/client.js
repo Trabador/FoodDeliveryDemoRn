@@ -1,7 +1,8 @@
 import {ApolloClient, InMemoryCache} from '@apollo/client';
+import {graphqlUrl} from '../utils/constants';
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_API_URL || 'http://192.168.1.71:1337/graphql',
+  uri: graphqlUrl,
   cache: new InMemoryCache(),
 });
 

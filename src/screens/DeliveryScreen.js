@@ -1,11 +1,29 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useLayoutEffect} from 'react';
-import {SafeAreaView} from 'react-native';
+import React, {useEffect, useLayoutEffect} from 'react';
+import {SafeAreaView, Alert, BackHandler} from 'react-native';
 import {Deliver} from '../components';
 import {mainColor} from '../utils/constants';
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
+
+  const backAction = () => {
+    Alert.alert('Processing delivery', 'Please wait', [
+      {
+        text: 'Ok',
+        onPress: () => null,
+        style: 'cancel',
+      },
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({

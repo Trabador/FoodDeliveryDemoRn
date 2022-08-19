@@ -20,8 +20,7 @@ const MainNavigator = () => {
     <ApolloProvider client={client}>
       <TailwindProvider>
         <NavigationContainer>
-          <Stack.Navigator /* initialRouteName="Home" */>
-            <Stack.Screen name="Delivery" component={DeliveryScreen} />
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Restaurant" component={RestaurantScreen} />
             <Stack.Screen
@@ -37,6 +36,7 @@ const MainNavigator = () => {
                 headerShown: false,
               }}
             />
+            <Stack.Screen name="Delivery" component={DeliveryScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </TailwindProvider>
