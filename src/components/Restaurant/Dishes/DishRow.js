@@ -3,8 +3,7 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {MinusCircleIcon, PlusCircleIcon} from 'react-native-heroicons/solid';
 import {useBasketStore} from '../../../store';
 import {selectQuantity} from '../../../store/basketStore';
-import {mainColor} from '../../../utils/constants';
-import {fromUrl} from '../../../utils/utils';
+import {defaultImageUrl, mainColor} from '../../../utils/constants';
 
 const DishRow = ({id, name, title, imageUrl, short_desc, price}) => {
   const [isPressed, setPress] = useState(false);
@@ -13,7 +12,7 @@ const DishRow = ({id, name, title, imageUrl, short_desc, price}) => {
   const quantity = useBasketStore(state => selectQuantity(id, title, state));
   const isDisabled = quantity === 0;
 
-  const url = fromUrl(imageUrl);
+  const url = imageUrl || defaultImageUrl;
 
   return (
     <>
@@ -30,7 +29,7 @@ const DishRow = ({id, name, title, imageUrl, short_desc, price}) => {
           </View>
           <View>
             <Image
-              source={{uri: fromUrl(imageUrl)}}
+              source={{uri: imageUrl || defaultImageUrl}}
               className="h-20 w-20 p-4"
             />
           </View>

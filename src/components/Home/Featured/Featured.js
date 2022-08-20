@@ -3,11 +3,12 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import {GET_FEATURED} from '../../../apollo/querys/featuredQuerys';
 import FeaturedRow from './FeaturedRow';
+import {FeaturedSkeleton} from '../../../components';
 
 const Featured = () => {
   const {data, loading, error} = useQuery(GET_FEATURED);
 
-  if (loading) return null;
+  if (loading) return <FeaturedSkeleton />;
   if (error) return null;
 
   const renderFeatures = ({item}) => (

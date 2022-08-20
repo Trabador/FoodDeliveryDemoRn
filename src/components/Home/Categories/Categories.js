@@ -2,19 +2,21 @@ import {useQuery} from '@apollo/client';
 import React from 'react';
 import {FlatList} from 'react-native';
 import {GET_CATEGORIES} from '../../../apollo/querys/categoryQuery';
-import {fromUrl} from '../../../utils/utils';
+import {defaultImageUrl} from '../../../utils/constants';
+import {CategorySkeleton} from '../../../components';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
   const {data, loading, error} = useQuery(GET_CATEGORIES);
 
-  if (loading) return null;
+  if (loading) return <CategorySkeleton />;
   if (error) return null;
 
   const renderCategories = ({item}) => (
     <CategoryCard
+      id={item.id}
       title={item.attributes.title}
-      imgUrl={fromUrl(item.attributes.image.data.attributes.url)}
+      imgUrl={item.attributes.image.data?.attributes.url || defaultImageUrl}
     />
   );
 

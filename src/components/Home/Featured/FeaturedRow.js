@@ -1,15 +1,14 @@
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
 import {ArrowRightIcon} from 'react-native-heroicons/outline';
-import {mainColor} from '../../../utils/constants';
-import {fromUrl} from '../../../utils/utils';
+import {defaultImageUrl, mainColor} from '../../../utils/constants';
 import RestaurantCard from './RestaurantCard';
 
 const FeaturedRow = ({title, description, restaurants}) => {
   const renderRestaurants = ({item}) => (
     <RestaurantCard
       id={item.id}
-      imgUrl={fromUrl(item.attributes.image.data.attributes.url)}
+      imgUrl={item.attributes.image.data?.attributes.url || defaultImageUrl}
       title={item.attributes.name}
       rating={item.attributes.rating}
       genre={item.attributes.genre}
@@ -17,6 +16,7 @@ const FeaturedRow = ({title, description, restaurants}) => {
       short_description={item.attributes.short_desc}
       long={item.attributes.lon}
       lat={item.attributes.lat}
+      large={false}
     />
   );
 

@@ -8,6 +8,7 @@ import {
   RestaurantScreen,
   PreparingOrderScreen,
   DeliveryScreen,
+  RestaurantsScreen,
 } from '../screens';
 import {TailwindProvider} from 'tailwindcss-react-native';
 import {ApolloProvider} from '@apollo/client/react';
@@ -28,6 +29,7 @@ const MainNavigator = () => {
               component={BasketScreen}
               options={{presentation: 'modal', headerShown: false}}
             />
+            <Stack.Screen name="Restaurants" component={RestaurantsScreen} />
             <Stack.Screen
               name="PreparingOrder"
               component={PreparingOrderScreen}

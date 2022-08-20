@@ -5,7 +5,7 @@ import {
   LocationMarkerIcon,
   StarIcon,
 } from 'react-native-heroicons/outline';
-import {mainColor} from '../../utils/constants';
+import {defaultImageUrl, mainColor} from '../../utils/constants';
 
 const RestaurantHeader = ({
   imgUrl,
@@ -18,7 +18,10 @@ const RestaurantHeader = ({
 }) => {
   return (
     <View className="relative">
-      <Image source={{uri: imgUrl}} className="w-full h-56" />
+      <Image
+        source={{uri: imgUrl || defaultImageUrl}}
+        className="w-full h-56"
+      />
       <TouchableOpacity
         className="absolute top-3 left-2 bg-gray-100 rounded-full px-2 py-2"
         onPress={navigation.goBack}>

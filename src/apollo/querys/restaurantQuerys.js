@@ -27,3 +27,29 @@ export const GET_DISHES = gql`
     }
   }
 `;
+
+export const GET_RESTAURANT_BY_CAT = gql`
+  query GetRestaurantsByCat($id: ID) {
+    restaurants(filters: {menu_categories: {id: {eq: $id}}}) {
+      data {
+        id
+        attributes {
+          name
+          rating
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          genre
+          address
+          short_desc
+          lon
+          lat
+        }
+      }
+    }
+  }
+`;

@@ -17,7 +17,7 @@ const HomeScreen = () => {
       <Header />
       <Search />
       <FlatList
-        contentContainerStyle={{paddingBottom: 250}}
+        contentContainerStyle={{paddingBottom: 200}}
         ListHeaderComponent={<Categories />}
         ListFooterComponent={<Featured />}
       />

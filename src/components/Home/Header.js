@@ -15,12 +15,12 @@ const Header = () => {
         className="h-7 w-7 bg-gray-300 p-4 rounded-full"
       />
       <View className="flex-1">
-        <Text className="font-bold text-gray-400 text-xs">Deliver now!</Text>
+        <Text className="font-bold text-gray-400 text-xs">Food Delivery</Text>
         <Text className="font-bold text-xl">
-          Current Location <ChevronDownIcon size={20} color={mainColor} />
+          Welcome User <ChevronDownIcon size={20} color={mainColor} />
         </Text>
       </View>
-      <UserIcon size={35} color={mainColor} />
+      {/* <UserIcon size={35} color={mainColor} /> */}
     </View>
   );
 };

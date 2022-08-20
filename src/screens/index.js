@@ -3,6 +3,7 @@ import RestaurantScreen from './RestaurantScreen';
 import BasketScreen from './BasketScreen';
 import PreparingOrderScreen from './PreparingOrderScreen';
 import DeliveryScreen from './DeliveryScreen';
+import RestaurantsScreen from './RestaurantsScreen';
 
 export {
   HomeScreen,
@@ -10,4 +11,5 @@ export {
   BasketScreen,
   PreparingOrderScreen,
   DeliveryScreen,
+  RestaurantsScreen,
 };
